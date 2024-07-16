@@ -1,29 +1,34 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 
 type Recipe = {
   id: string;
   name: string;
+  description: string;
 };
 
 const MOCK_RECIPES: Recipe[] = [
-  { id: '1', name: 'Spaghetti Carbonara' },
-  { id: '2', name: 'Chicken Stir Fry' },
-  { id: '3', name: 'Vegetable Soup' },
+  { id: '1', name: 'Green Smoothie Bowl', description: 'Packed with spinach, kale, and tropical fruits' },
+  { id: '2', name: 'Grilled Chicken Salad', description: 'Lean protein with a mix of fresh vegetables' },
+  { id: '3', name: 'Vegetable Stir Fry', description: 'Colorful veggies in a light, flavorful sauce' },
 ];
 
 const RecipeList: React.FC = () => {
+  const renderItem = ({ item }: { item: Recipe }) => (
+    <TouchableOpacity style={styles.recipeItem}>
+      <Text style={styles.recipeName}>{item.name}</Text>
+      <Text style={styles.recipeDescription}>{item.description}</Text>
+    </TouchableOpacity>
+  );
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>My Recipes</Text>
+      <Text style={styles.title}>Fresh & Healthy Recipes</Text>
       <FlatList
         data={MOCK_RECIPES}
+        renderItem={renderItem}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.recipeItem}>
-            <Text>{item.name}</Text>
-          </View>
-        )}
+        contentContainerStyle={styles.listContainer}
       />
     </View>
   );
@@ -32,17 +37,40 @@ const RecipeList: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
+    backgroundColor: '#F2E8CF', // Creamy beige background
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    padding: 20,
+    color: '#2E7D32',
+    textAlign: 'center',
+  },
+  listContainer: {
+    paddingHorizontal: 16,
   },
   recipeItem: {
-    padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
+    padding: 16,
+    marginBottom: 16,
+    borderLeftWidth: 4,
+    borderLeftColor: '#4CAF50',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  recipeName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 4,
+    color: '#333333',
+  },
+  recipeDescription: {
+    fontSize: 14,
+    color: '#666666',
   },
 });
 
