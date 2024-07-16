@@ -23,7 +23,7 @@ const RecipeList: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Fresh & Healthy Recipes</Text>
+      <Text style={styles.title}>Meal Inspirations</Text>
       <FlatList
         data={MOCK_RECIPES}
         renderItem={renderItem}
@@ -37,7 +37,7 @@ const RecipeList: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F2E8CF', // Creamy beige background
+    backgroundColor: '#F2E8CF',
   },
   title: {
     fontSize: 24,
