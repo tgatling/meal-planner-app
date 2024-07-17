@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import RecipeItem from './RecipeItem';
 
 type Recipe = {
   id: string;
@@ -15,10 +16,11 @@ const MOCK_RECIPES: Recipe[] = [
 
 const RecipeList: React.FC = () => {
   const renderItem = ({ item }: { item: Recipe }) => (
-    <TouchableOpacity style={styles.recipeItem}>
-      <Text style={styles.recipeName}>{item.name}</Text>
-      <Text style={styles.recipeDescription}>{item.description}</Text>
-    </TouchableOpacity>
+    <RecipeItem 
+      name={item.name} 
+      description={item.description} 
+      onPress={() => console.log(`Pressed ${item.name}`)}
+    />
   );
 
   return (
