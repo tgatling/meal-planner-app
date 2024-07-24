@@ -7,7 +7,11 @@ type RecipeItemProps = {
   onPress: () => void;
 };
 
-const RecipeItem: React.FC<RecipeItemProps> = ({ name, description, onPress }) => (
+const RecipeItem: React.FC<RecipeItemProps> = ({
+  name,
+  description,
+  onPress,
+}) => (
   <TouchableOpacity style={styles.recipeItem} onPress={onPress}>
     <Text style={styles.recipeName}>{name}</Text>
     <Text style={styles.recipeDescription}>{description}</Text>
@@ -21,7 +25,7 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 16,
     borderLeftWidth: 4,
-    borderLeftColor: '#4CAF50',
+    borderLeftColor: '#81B29A',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
