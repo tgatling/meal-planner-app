@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 
 type Recipe = {
   id: string;
@@ -8,9 +14,21 @@ type Recipe = {
 };
 
 const MOCK_RECIPES: Recipe[] = [
-  { id: '1', name: 'Green Smoothie Bowl', description: 'Packed with spinach, kale, and tropical fruits' },
-  { id: '2', name: 'Grilled Chicken Salad', description: 'Lean protein with a mix of fresh vegetables' },
-  { id: '3', name: 'Vegetable Stir Fry', description: 'Colorful veggies in a light, flavorful sauce' },
+  {
+    id: '1',
+    name: 'Green Smoothie Bowl',
+    description: 'Packed with spinach, kale, and tropical fruits',
+  },
+  {
+    id: '2',
+    name: 'Grilled Chicken Salad',
+    description: 'Lean protein with a mix of fresh vegetables',
+  },
+  {
+    id: '3',
+    name: 'Vegetable Stir Fry',
+    description: 'Colorful veggies in a light, flavorful sauce',
+  },
 ];
 
 const RecipeList: React.FC = () => {
@@ -23,7 +41,6 @@ const RecipeList: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Meal Inspirations</Text>
       <FlatList
         data={MOCK_RECIPES}
         renderItem={renderItem}
@@ -37,14 +54,7 @@ const RecipeList: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F2E8CF',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    padding: 20,
-    color: '#2E7D32',
-    textAlign: 'center',
+    marginTop: 20,
   },
   listContainer: {
     paddingHorizontal: 16,
