@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const HomeScreen: React.FC = () => {
+const SettingsScreen: React.FC = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Home Screen</Text>
+      <Text>Settings Screen</Text>
     </View>
   );
 };
 
-export default HomeScreen;
+export default SettingsScreen;
