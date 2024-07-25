@@ -1,18 +1,11 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
-import RecipeList from './src/components/RecipeList';
+import AppNavigator from './src/navigation/AppNavigator';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <RecipeList />
-    </SafeAreaView>
+      <NavigationContainer>
+        <AppNavigator />
+      </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F2E8CF',
-  },
-});
